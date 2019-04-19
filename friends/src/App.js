@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import {BrowserRouter as Router, Route, Link} from 'react-router-dom';
+import {BrowserRouter as Router, Route, NavLink} from 'react-router-dom';
 import Login from './components/Login';
 import FriendsList from './components/FriendsList';
 import PrivateRoute from './components/PrivateRoute';
@@ -10,16 +10,14 @@ class App extends Component {
     return (
       <Router>
       <div className="App">
-      <ul>
-        <li>
-      <Link to='/login'>Login</Link>
-      </li>
-      <li>
-      <Link to='/protected'>Protect</Link>
-      </li>
-      </ul>
+      <nav>
+       <div className='nav-links'>
+      <NavLink to='/login'>Login</NavLink>
+      <NavLink to='/friendslist'>FriendsList</NavLink>
+      </div>
+      </nav>
       <Route path='/login' component={Login} /> 
-      <PrivateRoute exact path='/protected' component={FriendsList} />
+      <PrivateRoute exact path='/friendslist' component={FriendsList} />
       </div>
       </Router>
     );
