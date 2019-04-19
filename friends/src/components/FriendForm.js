@@ -1,22 +1,32 @@
 import React from 'react';
 import { connect } from 'react-redux';
+import { addFriend } from '../actions';
 
 class FriendForm extends React.Component {
     state = {
+        newFriend: {
         name: '',
         email:'',
         age:''
+        }
     }
 
     handleChange = e => {
         this.setState({
+            newFriend: {
+                ...this.state.newFriend,
                 [e.target.name]: e.target.value
             }
-        );
+        });
     }
 
     handleFriendForm = e => {
         e.preventDefault();
+        this.props
+          .addFriend(this.state.newFriend)
+
+          
+
     }
 
     render() {
@@ -49,6 +59,12 @@ class FriendForm extends React.Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        friends: state.friendsReducer.friends
+    }
+}
+
 export default connect(
-    null, {}
+    mapStateToProps, { addFriend }
 )(FriendForm)
