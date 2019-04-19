@@ -51,10 +51,15 @@ class Login extends React.Component {
     }
 }
 
+const mapStateToProps = state => {
+    return {
+        isLoggingIn: state.friendsReducer.isLoggingIn
+    }
+}
 
 
 export default connect(
-    null, { login }
+    mapStateToProps, { login }
 )(Login)
 
 // Lambda School i<3Lambd4
