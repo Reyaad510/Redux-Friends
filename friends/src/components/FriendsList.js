@@ -2,6 +2,7 @@ import React from 'react';
 import { connect } from 'react-redux';
 import { withRouter } from 'react-router-dom';
 import { getData } from '../actions';
+import FriendForm from './FriendForm';
 
 
 class FriendsList extends React.Component {
@@ -13,7 +14,8 @@ class FriendsList extends React.Component {
 
     render() {
         return (
-            
+            <>
+            <FriendForm />
             <div className='friends'>
                 {this.props.friends.map(friend => {
                     return (
@@ -30,6 +32,7 @@ class FriendsList extends React.Component {
                 })}
                 </div>
                 
+                </>
         )
     }
 
